@@ -1,26 +1,14 @@
 package application;
 
-public class Food {
-	private int xStartingLocation, yStartingLocation;
-	private char foodSymbol;
-	
-	public Food(char foodSymbol, int xStartingLocation, int yStartingLocation) {
-		this.foodSymbol = foodSymbol;
-		this.xStartingLocation = xStartingLocation;
-		this.yStartingLocation = yStartingLocation;
+public class Food extends GameObject {
+
+	public Food(char symbol) {
+		setSymbol(symbol);
 	}
-	
-//	Getters
-	
-	public int getXStartingLocation() {
-		return this.xStartingLocation;
-	}
-	
-	public int getYStartingLocation() {
-		return this.yStartingLocation;
-	}
-	
-	public char getSymbol() {
-		return foodSymbol;
+
+	// Add food to random location inside the matrix limits
+	public void addRandomFood(GameScreen screen, Food food) {
+		screen.setObjectOnLocation(food, (int) (Math.random() * Main.SCREEN_WIDTH) - 1,
+				(int) (Math.random() * Main.SCREEN_HEIGHT) - 1);
 	}
 }
