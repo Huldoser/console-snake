@@ -1,12 +1,14 @@
 package application;
 
+import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) {
 
 		// Constants
-		final int SCREEN_WIDTH = 100; // Columns
-		final int SCREEN_HEIGHT = 50; // Rows
+		final int SCREEN_WIDTH = 20; // Columns
+		final int SCREEN_HEIGHT = 10; // Rows
 		final int SNAKE_STARTING_X = SCREEN_WIDTH / 2;
 		final int SNAKE_STARTING_Y = SCREEN_HEIGHT / 2;
 
@@ -30,9 +32,32 @@ public class Main {
 		// Init food
 		Food food = new Food('*');
 		food.addRandomFood(screen, food);
+		
+		// Input from player
+		Scanner scanner = new Scanner(System.in);
+		char input;
 
-		// Print the screen
-		screen.PrintScreen();
+		// The game logic starts here
+		boolean isRunning = true;
 
+		while (isRunning) {
+			screen.PrintScreen();
+			// Get input from player and do something
+			switch (input = scanner.nextLine().charAt(0)) {
+			case 'a':
+				snake.moveLeft(screen, snake);
+				break;
+			case 'd':
+				snake.moveRight(screen, snake);
+				break;
+			case 'w':
+				snake.moveUp(screen, snake);
+				break;
+			case 's':
+				snake.moveDown(screen, snake);
+				break;
+			}
+		}
 	}
+
 }

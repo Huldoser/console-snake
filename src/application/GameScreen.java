@@ -30,6 +30,11 @@ public class GameScreen {
 		}
 	}
 
+	//Screen clear location
+	public void ClearScreenLocation(int x, int y) {
+		this.screenMatrix[y][x] = '.';
+	}
+
 	// Getters
 	public int getScreenWidth() {
 		return this.width;
@@ -37,6 +42,10 @@ public class GameScreen {
 
 	public int getScreenHeight() {
 		return this.height;
+	}
+
+	public char getObjectOnLocation(int x, int y) {
+		return this.screenMatrix[y][x];
 	}
 
 	// Setters
