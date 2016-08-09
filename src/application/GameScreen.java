@@ -8,23 +8,23 @@ public class GameScreen {
 	public GameScreen(int width, int height) {
 		this.width = width;
 		this.height = height;
-		screenMatrix = new char[this.width][this.height];
+		this.screenMatrix = new char[this.height][this.width];
 	}
 
 	// Fill array with dots
-	public void CleanScreen() {
+	public void InitScreen() {
 		for (int i = 0; i < this.height; i++) {
 			for (int j = 0; j < this.width; j++) {
-				screenMatrix[i][j] = '.';
+				this.screenMatrix[i][j] = '.';
 			}
 		}
 	}
 
 	// Print the screen to console
 	public void PrintScreen() {
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
-				System.out.print(screenMatrix[i][j]);
+		for (int i = 0; i < this.height; i++) {
+			for (int j = 0; j < this.width; j++) {
+				System.out.print(this.screenMatrix[i][j]);
 			}
 			System.out.println();
 		}
@@ -41,6 +41,6 @@ public class GameScreen {
 
 	// Setters
 	public void setObjectOnLocation(GameObject object, int x, int y) {
-		this.screenMatrix[x][y] = object.getSymbol();
+		this.screenMatrix[y][x] = object.getSymbol();
 	}
 }

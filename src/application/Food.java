@@ -8,7 +8,7 @@ public class Food extends GameObject {
 
 	// Add food to random location inside the matrix limits
 	public void addRandomFood(GameScreen screen, Food food) {
-		screen.setObjectOnLocation(food, (int) (Math.random() * Main.SCREEN_WIDTH) - 1,
-				(int) (Math.random() * Main.SCREEN_HEIGHT) - 1);
+		screen.setObjectOnLocation(food, (int) (Math.random() * (screen.getScreenWidth() - 1)),
+				(int) (Math.random() * (screen.getScreenHeight() - 1)));
 	}
 }
